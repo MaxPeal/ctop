@@ -12,8 +12,8 @@ jobs:
       - deploy:
           command: |
             if [[ "$CIRCLE_BRANCH" == "master" ]]; then
-              docker tag ctop quay.io/vektorlab/ctop:latest
-              docker tag ctop quay.io/vektorlab/ctop:$(cat VERSION)
+              docker tag ctop quay.io/$DOCKER_RREPO_NAME/ctop:latest
+              docker tag ctop quay.io/$DOCKER_RREPO_NAME/ctop:$(cat VERSION)
               docker login -u $DOCKER_USER -p $DOCKER_PASS quay.io
-              docker push quay.io/vektorlab/ctop
+              docker push quay.io/$DOCKER_RREPO_NAME/ctop
             fi
