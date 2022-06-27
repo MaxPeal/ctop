@@ -26,7 +26,7 @@ run-dev:
 	CTOP_DEBUG=1 ./ctop
 
 image:
-	docker build -t ctop -f Dockerfile .
+	docker buildx build --platform linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x --load -t ctop -f Dockerfile .
 
 release:
 	mkdir release
